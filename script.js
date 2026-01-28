@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    fetch("https://api.counterapi.dev/v2/weirdo/meme-page/up")
-      .then((response) => response.json())
-      .then((data) => {
-        const count = data.data?.up_count;
-        document.getElementById("visitor-count").textContent = count ?? "???";
+    fetch("https://peaceman.goatcounter.com/counter/%2F.json")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("visitor-count").textContent = data.count_unique;
       })
-      .catch((error) => {
-        console.error("Visitor count error:", error);
+      .catch(() => {
         document.getElementById("visitor-count").textContent = "???";
       });
   });
